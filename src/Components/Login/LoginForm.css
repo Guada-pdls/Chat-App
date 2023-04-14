@@ -1,0 +1,30 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+.container-login{
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top:20px ;
+}
+
+.button-send{
+
+    padding-top: 20px ;
+}

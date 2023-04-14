@@ -1,11 +1,18 @@
-import React from 'react'
-import {getAuth} from 'firebase/auth'
+import React, { useState } from "react";
+import LoginForm from "../../Components/LoginForm";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-const Auth = () => {
+const Auth = async () => {
 
-  return (
-    <div>Auth</div>
-  )
-}
+  const [error, setError] = useState(false);
 
-export default Auth
+  const auth = getAuth();
+  try {
+    const res = await signInWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    setError(true);
+  }
+  return <LoginForm />;
+};
+
+export default Auth;

@@ -1,9 +1,10 @@
-
+import React from "react"
+import LoginForm from "./Components/Login/LoginForm"
 
 function App() {
   return (
     <div className="App">
-      <button onClick={() => console.log(import.meta.env.VITE_PROJECT_ID)}></button>
+      <LoginForm/>
     </div>
   )
 }

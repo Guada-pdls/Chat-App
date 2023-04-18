@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { register } from "../Services/firebase";
 
 export const useForm = (initialForm, validateForm) => {
     const [form, setForm] = useState(initialForm);
@@ -24,10 +24,10 @@ export const useForm = (initialForm, validateForm) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors(validateForm(form));
-        if(Object.keys(errors).length === 0){
+        if (Object.keys(errors).length === 0) {
             setLoading(false);
             setResponse(true);
-            console.log('hola')
+            register(form)
         }
     };
 

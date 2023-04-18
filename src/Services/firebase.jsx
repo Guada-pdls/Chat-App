@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth'
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_AUTH_DOMAIN ,
@@ -8,6 +10,16 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-console.log(import.meta.env.API_KEY)
+export const register = async form => {
+
+  const { email, password } = form
+
+  const auth = getAuth(app)
+  await createUserWithEmailAndPassword(auth, email, password)
+  .then(userCredential => {
+    console.log(userCredential)})
+  .catch(err => console.log(err))
+
+};
